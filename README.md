@@ -1,1 +1,1 @@
-A weather app made to learn using APIs and asynchronous code.
+  A weather app made to learn using APIs and asynchronous code.
