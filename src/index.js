@@ -1,4 +1,5 @@
 import { getWeatherData } from "./weather";
+import { displayToday } from "./dom";
 
-const today = getWeatherData("Selangor")
-today.then(info => console.log(info))
+await getWeatherData("Selangor")
+displayToday()
