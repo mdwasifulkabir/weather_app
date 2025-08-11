@@ -28,14 +28,15 @@ function displayToday() {
   const description = document.createElement('h3')
   const icon = document.createElement('i')
   const fragment = document.createDocumentFragment();
+  const today = week_data[0]
 
   loc.textContent = location
-  day.textContent = week_data[0].datetime
-  temp.textContent = week_data[0].temp
-  feelslike.textContent = week_data[0].feelslike
-  humidity.textContent = week_data[0].humidity
-  description.textContent = week_data[0].description
-  icon.className = `wi ${iconMap[week_data[0].icon]}`
+  day.textContent = today.datetime
+  temp.textContent = today.temp
+  feelslike.textContent = today.feelslike
+  humidity.textContent = today.humidity
+  description.textContent = today.description
+  icon.className = `wi ${iconMap[today.icon]}`
 
   todayCard.append(loc, day, temp, icon, feelslike, humidity, description)
   fragment.appendChild(todayCard)
