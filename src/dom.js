@@ -1,4 +1,6 @@
-import { week_data, location } from "./weather"
+import { week_data } from "./weather"
+
+const content = document.querySelector('.content')
 
 const iconMap = {
   "clear-day": "wi-day-sunny",
@@ -17,32 +19,33 @@ const iconMap = {
   "hail": "wi-hail"
 }
 
-function displayToday() {
-  const body = document.querySelector('body')
-  const loc = document.createElement('h1')
-  const todayCard = document.createElement('div')
-  const day = document.createElement('h2')
-  const temp = document.createElement('h3')
-  const feelslike = document.createElement('p')
-  const humidity = document.createElement('p')
-  const description = document.createElement('h3')
-  const icon = document.createElement('i')
-  const fragment = document.createDocumentFragment();
-  const today = week_data[0]
+function renderCards() {
+  for (const week of week_data) {
+    const body = document.querySelector('body')
+    const todayCard = document.createElement('div')
+    const date = document.createElement('h2')
+    const temp = document.createElement('h3')
+    const feelslike = document.createElement('p')
+    const humidity = document.createElement('p')
+    const description = document.createElement('h3')
+    const icon = document.createElement('i')
+    const fragment = document.createDocumentFragment();
+    const day = week 
 
-  loc.textContent = location
-  day.textContent = today.datetime
-  temp.textContent = today.temp
-  feelslike.textContent = today.feelslike
-  humidity.textContent = today.humidity
-  description.textContent = today.description
-  icon.className = `wi ${iconMap[today.icon]}`
+    date.textContent = day.datetime
+    temp.textContent = `Temperature: ${day.temperature} °C`
+    feelslike.textContent = `Feels like ${day.feelslike} °C`
+    humidity.textContent = `Humidity: ${day.humidity}`
+    description.textContent = day.description
 
-  todayCard.append(loc, day, temp, icon, feelslike, humidity, description)
-  fragment.appendChild(todayCard)
+    icon.className = `wi ${iconMap[day.icon]}`
+    todayCard.className = 'weather-card'
 
-  body.appendChild(fragment)
-  console.log("week data: ")
+    todayCard.append(date, temp, icon, feelslike, humidity, description)
+    fragment.appendChild(todayCard)
+
+    content.appendChild(fragment)
+  }
 }
 
-export { displayToday }
+export { renderCards }
