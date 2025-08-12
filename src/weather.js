@@ -39,7 +39,6 @@ function extractWeatherInfo(data) {
     }
 
     week_data.push(day_data)
-    console.log(day_data)
   }
 }
 

@@ -21,7 +21,6 @@ const iconMap = {
 
 function renderCards() {
   for (const week of week_data) {
-    const body = document.querySelector('body')
     const todayCard = document.createElement('div')
     const date = document.createElement('h2')
     const temp = document.createElement('h3')

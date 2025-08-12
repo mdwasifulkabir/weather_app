@@ -4,6 +4,8 @@ import { getWeatherData, location } from "./weather";
 import { renderCards } from "./dom";
 
 const locationHeader = document.querySelector('.location')
+const searchForm = document.querySelector('#search-form')
+
 locationHeader.textContent = location
 await getWeatherData("Selangor")
 renderCards()
