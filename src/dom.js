@@ -1,6 +1,7 @@
 import { week_data } from "./weather"
 
-const content = document.querySelector('.content')
+const todayDiv = document.querySelector('.today-wrapper')
+const forecastDiv = document.querySelector('.forecast-wrapper')
 
 const iconMap = {
   "clear-day": "wi-day-sunny",
@@ -20,8 +21,8 @@ const iconMap = {
 }
 
 function renderCards() {
-  for (const week of week_data) {
-    const todayCard = document.createElement('div')
+  week_data.forEach((day, index) => {
+    const dayCard = document.createElement('div')
     const date = document.createElement('h2')
     const temp = document.createElement('h3')
     const feelslike = document.createElement('p')
@@ -29,7 +30,8 @@ function renderCards() {
     const description = document.createElement('h3')
     const icon = document.createElement('i')
     const fragment = document.createDocumentFragment();
-    const day = week 
+
+ 
 
     date.textContent = day.datetime
     temp.textContent = `Temperature: ${day.temperature} °C`
@@ -38,13 +40,19 @@ function renderCards() {
     description.textContent = day.description
 
     icon.className = `wi ${iconMap[day.icon]}`
-    todayCard.className = 'weather-card'
+    dayCard.classList.add('weather-card')
 
-    todayCard.append(date, temp, icon, feelslike, humidity, description)
-    fragment.appendChild(todayCard)
+    dayCard.append(date, temp, icon, feelslike, humidity, description)
+    fragment.appendChild(dayCard)
 
-    content.appendChild(fragment)
-  }
+    if (index == 0) {
+      dayCard.classList.add('today-card')
+      todayDiv.appendChild(dayCard)
+    } else {
+      dayCard.classList.add('forecast')
+      forecastDiv.appendChild(dayCard)
+    }
+  })
 }
 
 export { renderCards }

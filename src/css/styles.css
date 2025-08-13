@@ -9,6 +9,25 @@ html, body {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.today-wrapper {
+  width: 100vw;
+  height: 50vh;
+}
+
+.forecast-wrapper {
+  display: flex;
+}
+
 .weather-card {
   display: flex;
   flex-direction: column;
@@ -23,6 +42,7 @@ html, body {
   border: 1px solid #b6c6e3;
   transition: box-shadow 0.2s;
 }
+
 
 .weather-card:hover {
   box-shadow: 0 12px 32px rgba(0,0,0,0.18);
@@ -49,5 +69,6 @@ html, body {
   color: #4a90e2;
   margin-bottom: 0.5rem;
 }
+
 
 
