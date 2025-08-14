@@ -23,6 +23,7 @@ async function getWeatherData(location) {
 function extractWeatherInfo(data) {
   let week = data.days.slice(0, 7)
   location = data.resolvedAddress
+  week_data = []
   
   for (const day of week) {
     const day_data = {

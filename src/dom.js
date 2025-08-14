@@ -38,7 +38,7 @@ function renderCards() {
     if (isToday(day.date)) {
       formatted =  `Today, ${format(day.date, 'MMMM d')}`
     } else {
-      formatted = format(day.date, 'EEEE')
+      formatted = format(day.date, 'EEEE, MMMM d')
     }
 
     date.textContent = formatted
