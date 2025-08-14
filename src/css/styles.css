@@ -104,7 +104,6 @@ button[type="submit"]:hover {
   border-radius: 2rem;
   box-shadow: 0 4px 24px var(--card-shadow);
   margin-top: 2rem;
-  padding: 2rem 0;
 }
 
 /* Today and forecast*/
@@ -172,6 +171,7 @@ button[type="submit"]:hover {
 /* Today card styles */
 .today-card {
   width: 100%;
+  height: 100%;
   max-width: none;
   border-radius: 2rem;
   padding: 2.5rem 2rem;
