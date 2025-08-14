@@ -33,7 +33,7 @@ function extractWeatherInfo(data) {
       temperature: day.temp,
       feelslike: day.feelslike,
       humidity: day.humidity,
-      datetime: day.datetime,
+      date: new Date(day.datetime),
       description: day.description,
       icon: day.icon
     }

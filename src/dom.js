@@ -1,4 +1,5 @@
 import { week_data } from "./weather"
+import { format, isToday } from "date-fns"
 
 const todayDiv = document.querySelector('.today-wrapper')
 const forecastDiv = document.querySelector('.forecast-wrapper')
@@ -21,6 +22,8 @@ const iconMap = {
 }
 
 function renderCards() {
+  todayDiv.innerHTML = ""
+  forecastDiv.innerHTML = ""
   week_data.forEach((day, index) => {
     const dayCard = document.createElement('div')
     const date = document.createElement('h2')
@@ -31,9 +34,14 @@ function renderCards() {
     const icon = document.createElement('i')
     const fragment = document.createDocumentFragment();
 
- 
+    let formatted
+    if (isToday(day.date)) {
+      formatted =  `Today, ${format(day.date, 'MMMM d')}`
+    } else {
+      formatted = format(day.date, 'EEEE')
+    }
 
-    date.textContent = day.datetime
+    date.textContent = formatted
     temp.textContent = `Temperature: ${day.temperature} °C`
     feelslike.textContent = `Feels like ${day.feelslike} °C`
     humidity.textContent = `Humidity: ${day.humidity}`
