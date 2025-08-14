@@ -13,7 +13,7 @@
   --accent-color: #4a90e2;
   --accent-color-dark: #357abd;
   --border-color: #b6c6e3;
-  --shadow-color: rgba(44, 62, 80, 0.05);
+  --shadow-color: rgba(44, 62, 80, 0.1);
   --card-shadow: rgba(0,0,0,0.12);
   --card-shadow-hover: rgba(0,0,0,0.18);
   --text-secondary: #3c4a5a;
@@ -165,6 +165,31 @@ button[type="submit"]:hover {
   font-size: 4rem;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
+}
+
+/* Today card styles */
+.today-card {
+  width: 100%;
+  max-width: none;
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  box-shadow: 0 8px 24px var(--card-shadow);
+  border: 1px solid var(--border-color);
+  gap: 2rem;
+}
+
+.today-card h2,
+.today-card h3,
+.today-card p,
+.today-card .wi {
+  margin: 0 1rem;
 }
 
 /* Responsive design */

@@ -1,5 +1,4 @@
 let week_data = []
-let hours_data = []
 let location = ""
 
 async function getWeatherData(location) {
@@ -23,10 +22,7 @@ async function getWeatherData(location) {
 
 function extractWeatherInfo(data) {
   let week = data.days.slice(0, 7)
-  hours_data = data.days[0].hours
-  console.log(hours_data)
   location = data.resolvedAddress
-  console.log(location)
   
   for (const day of week) {
     const day_data = {
